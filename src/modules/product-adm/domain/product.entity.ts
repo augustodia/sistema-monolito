@@ -13,7 +13,6 @@ type ProductProps = {
 }
 
 export default class Product extends BaseEntity implements AggregateRoot {
-    /* test rules branch */
     private _name: string;
     private _description: string;
     private _purchasePrice: number;
