@@ -19,7 +19,7 @@ interface ProductCreationAttributes extends Optional<ProductColumns, 'id'> {
     tableName: 'products',
     timestamps: false,
 })
-export class ProductModel extends Model<ProductColumns, ProductCreationAttributes>{
+export class ProductModel extends Model<ProductColumns, ProductCreationAttributes> implements ProductCreationAttributes {
     @PrimaryKey
     @Column({allowNull: false})
     ids: string;
