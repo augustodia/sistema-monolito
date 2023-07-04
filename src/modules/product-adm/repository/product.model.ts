@@ -1,5 +1,5 @@
-import {Column, Model, PrimaryKey, Table, Validate} from "sequelize-typescript";
-import {InferAttributes, InferCreationAttributes, Optional} from "sequelize";
+import {Column, Model, PrimaryKey, Table} from "sequelize-typescript";
+import {Optional} from "sequelize";
 
 export type ProductColumns = {
     id: string;
@@ -11,9 +11,7 @@ export type ProductColumns = {
     updatedAt: Date;
 }
 
-interface ProductCreationAttributes extends Optional<ProductColumns, 'id'> {
-    name: string;
-}
+interface ProductCreationAttributes extends Optional<ProductColumns, 'id'> {}
 
 @Table({
     tableName: 'products',
@@ -22,10 +20,9 @@ interface ProductCreationAttributes extends Optional<ProductColumns, 'id'> {
 export class ProductModel extends Model<ProductColumns, ProductCreationAttributes> implements ProductCreationAttributes {
     @PrimaryKey
     @Column({allowNull: false})
-    ids: string;
+    id: string;
 
     @Column({allowNull: false})
-    @Validate({notEmpty: true})
     name: string;
 
     @Column({allowNull: false})

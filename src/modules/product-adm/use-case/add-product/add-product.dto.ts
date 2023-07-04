@@ -1,7 +1,5 @@
-import Id from "../../../@shared/domain/value-object/id.value-object";
-
 export interface AddProductInputDto {
-    id?: Id;
+    id?: string;
     name: string;
     description: string;
     purchasePrice: number;

@@ -2,8 +2,9 @@ import {AddProductInputDto, AddProductOutputDto} from "./add-product.dto";
 import Product from "../../domain/product.entity";
 import Id from "../../../@shared/domain/value-object/id.value-object";
 import ProductGateway from "../../gateway/product.gateway";
+import UseCaseInterface from "../../../@shared/use-case/use-case.interface";
 
-export default class AddProductUseCase {
+export default class AddProductUseCase implements UseCaseInterface {
     private _productRepository: ProductGateway;
 
     constructor(productRepository: ProductGateway) {
@@ -12,8 +13,8 @@ export default class AddProductUseCase {
 
     async execute(input: AddProductInputDto): Promise<AddProductOutputDto> {
         const props = {
+            ...input,
             id: new Id(input.id),
-            ...input
         }
 
         const product = new Product(props);
