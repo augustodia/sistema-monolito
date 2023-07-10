@@ -4,7 +4,7 @@ import Id from "../../../@shared/domain/value-object/id.value-object";
 import ProductGateway from "../../gateway/product.gateway";
 import UseCaseInterface from "../../../@shared/use-case/use-case.interface";
 
-export default class AddProductUseCase implements UseCaseInterface {
+export default class AddProductUseCase implements UseCaseInterface<AddProductInputDto, AddProductOutputDto> {
     private _productRepository: ProductGateway;
 
     constructor(productRepository: ProductGateway) {
