@@ -2,7 +2,6 @@ import {ProductModel} from "./product.model";
 import Product from "../domain/product.entity";
 import ProductGateway from "../gateway/product.gateway";
 import Id from "../../@shared/domain/value-object/id.value-object";
-import {string} from "yup";
 
 export default class ProductRepository implements ProductGateway {
 
