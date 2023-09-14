@@ -13,7 +13,7 @@ describe("ProductRepository test", () => {
             sync: {force: true},
         })
 
-        await sequelize.addModels([ProductModel]);
+        sequelize.addModels([ProductModel]);
         await sequelize.sync();
     });
 
@@ -59,7 +59,7 @@ describe("ProductRepository test", () => {
         })
 
         const productRepository = new ProductRepository();
-        const product = await productRepository.find('2');
+        const product = await productRepository.find('1');
 
         expect(product.id.id).toBe('1')
         expect(product.name).toBe('Product 1')
